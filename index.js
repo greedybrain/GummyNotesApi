@@ -1,4 +1,5 @@
 //! Custom 
+const auth = require('./app/routes/auths')
 const users = require('./app/routes/users')
 
 //! Packages
@@ -28,6 +29,7 @@ mongoose.connect(connectionString, {
 
 //! Add middleware 
 app.use(express.json())
+app.use('/api/auth', auth)
 app.use('/api/users', users)
 
 //! Listening 
