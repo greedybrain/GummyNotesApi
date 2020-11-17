@@ -12,10 +12,8 @@ const NoteSchema = new mongoose.Schema({
                 type: String,
                 maxlength: 250,
                 required: true
-        }
+        },
 }, { timestamps: true })
-
-const Note = mongoose.model('Note', NoteSchema)
 
 const validateNote = note => {
         const schema = Joi.object({
@@ -26,6 +24,6 @@ const validateNote = note => {
 }
 
 module.exports = {
-        Note,
-        validateNote
+        validateNote,
+        NoteSchema
 }
