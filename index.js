@@ -1,14 +1,15 @@
-//! Custom 
-const auth = require('./app/routes/auths')
-const users = require('./app/routes/users')
-
 //! Packages
-// const dbDebugger = require('debug')('app:db')
-// const portDebugger = require('debug')('app:port')
+require('express-async-errors')
 const config = require('config')
 const mongoose = require('mongoose')
 const express = require('express')
 const app = express()
+
+//! Custom 
+// const { handleErrors } = require('./app/middleware/error')
+const auth = require('./app/routes/auths')
+const users = require('./app/routes/users')
+
 
 if (!config.get('jwtPrivateKey')) {
         console.log("FATAL ERROR: jwtPrivateKey is not defined.")
@@ -31,6 +32,7 @@ mongoose.connect(connectionString, {
 app.use(express.json())
 app.use('/api/auth', auth)
 app.use('/api/users', users)
+// app.use(handleErrors)
 
 //! Listening 
 const PORT = process.env.PORT || 3001
