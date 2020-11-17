@@ -5,6 +5,9 @@ const jwt = require('jsonwebtoken')
 const Joi = require('joi')
 const mongoose = require('mongoose')
 
+//! Custom
+const  { NoteSchema } = require('../models/note');
+
 const UserSchema = new mongoose.Schema({
         name: {
                 type: String,
@@ -23,6 +26,9 @@ const UserSchema = new mongoose.Schema({
                 type: String,
                 minlength: 8,
                 required: true
+        },
+        notes: {
+                type: [NoteSchema]
         }
 }, { timestamps: true })
 
