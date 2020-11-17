@@ -15,12 +15,13 @@ const NoteSchema = new mongoose.Schema({
         },
 }, { timestamps: true })
 
-const validateNote = note => {
+const validateNote = (note, res) => {
         const schema = Joi.object({
                 title: Joi.string().max(50).required(),
                 content: Joi.string().max(250).required(),
         })
-        return schema.validate(note)
+        const { error } = schema.validate(note)
+        if (error) return res.status(400).send("Check the title or body content of your note")
 }
 
 module.exports = {
