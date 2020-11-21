@@ -17,6 +17,7 @@ const { validateNote } = require('../models/note')
 //         }
 // } => then wrap each 'route/action' in this ^ method
 
+//! Helper functions
 const getCurrentUser = async (req, res) => {
         const user = await User.findById(req.user._id) .select('-password -createdAt -updatedAt -__v')
         if (!user) return res.status(404).send("User does not exist")
@@ -44,7 +45,6 @@ const getCurrentUsersNotes = async (req, res) => {
         res.send(notes)
 }
 
-
 const createNote = async (req, res) => {
         validateNote(req.body, res)
 
@@ -55,7 +55,6 @@ const createNote = async (req, res) => {
         user = await user.save()
         res.send(user)
 }
-
 
 const updateNote = async (req, res) => {
         validateNote(req.body, res)
@@ -69,7 +68,6 @@ const updateNote = async (req, res) => {
         res.send(note)
 }
 
-
 const deleteNote = async (req, res) => {
         const user = await User.findById(req.user._id)
         const note = user.notes.id(req.params.note_id)
@@ -78,7 +76,6 @@ const deleteNote = async (req, res) => {
         await user.save()
         res.send(note)
 }
-
 
 //! Exports
 module.exports = {
