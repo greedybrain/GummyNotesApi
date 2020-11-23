@@ -35,7 +35,7 @@ app.use('/api/users', users)
 // app.use(handleErrors)
 
 //! Listening 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 5000
 app.listen(PORT, error => {
         if(error) console.error(error)       
         console.log(`Listening on PORT ${PORT}`)
