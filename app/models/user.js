@@ -27,26 +27,31 @@ const UserSchema = new mongoose.Schema({
                 minlength: 8,
                 required: true
         },
+        confirmPassword: {
+                type: String,
+                minlength: 8,
+                required: true
+        },
         notes: {
                 type: [NoteSchema]
         }
 }, { timestamps: true })
 
-UserSchema.methods.generateAuthToken = function () {
-        const token = jwt.sign(_.pick(this, ['_id', 'name', 'email']), config.get('jwtPrivateKey'))
-        return token
-}       
+// UserSchema.methods.generateAuthToken = function () {
+//         const token = jwt.sign(_.pick(this, ['_id', 'name', 'email']), config.get('jwtPrivateKey'))
+//         return token
+// }       
 
 const User = mongoose.model('User', UserSchema)
 
-const validateUser = (user, res) => {
+const validateUser = user => {
         const schema = Joi.object({
                 name: Joi.string().min(2).max(100).required(),
                 email: Joi.string().min(5).max(100).email().required(),
-                password: Joi.string().min(8).required()
+                password: Joi.string().min(8).required(),
+                confirmPassword: Joi.string().min(8).required()
         })
-        const { error } = schema.validate(user)
-        if(error) return res.status(400).send(error.message)
+        return schema.validate(user)
 }
 
 module.exports = {
