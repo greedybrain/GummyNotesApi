@@ -21,7 +21,7 @@ var express = require('express');
 
 var app = express(); //! Custom 
 
-require('./config/passportConfig');
+require('./config/passport')(passport);
 
 var auth = require('./app/routes/auths');
 
