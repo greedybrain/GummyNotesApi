@@ -4,14 +4,13 @@ const config = require('config')
 const mongoose = require('mongoose')
 const cors = require('cors');
 const passport = require('passport');
-// const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const express = require('express')
 
 const app = express()
 
 //! Custom 
-require('./');
+require('./config/passportConfig');
 const auth = require('./app/routes/auths')
 const users = require('./app/routes/users');
 
