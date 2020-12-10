@@ -11,7 +11,7 @@ var app = express(); //! Custom
 
 require('express-async-errors');
 
-require('./app/config/passport')(passport);
+require('./config/passport')(passport);
 
 require('./startup/db')(config);
 
