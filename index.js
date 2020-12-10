@@ -10,7 +10,7 @@ const express = require('express')
 const app = express()
 
 //! Custom 
-require('./app/config/passport')(passport);
+require('./config/passport')(passport);
 const auth = require('./app/routes/auths')
 const users = require('./app/routes/users');
 
