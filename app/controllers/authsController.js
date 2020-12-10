@@ -40,7 +40,7 @@ const loginUser = async (req, res, next) => {
                 if (!user) return res.status(400).send("Invalid user")
                 req.logIn(user, err => {
                         if (err) return next(err); 
-                        user = _.pick(user, ['name', 'email', 'notes'])
+                        user = _.pick(user, ['_id','name', 'email', 'notes'])
                         res.send(user)
                 });
         })(req, res, next);

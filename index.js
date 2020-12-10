@@ -23,6 +23,11 @@ const users = require('./app/routes/users');
 //         process.exit(1)
 // }
 
+if (!config.get('sessionKey')) {
+        console.log("FATAL ERROR: session key is not defined.")
+        process.exit(1)
+}
+
 //! Connecting to database
 const connectionString = config.get('connection_string')
 mongoose.connect(connectionString, {
@@ -44,7 +49,7 @@ app.use(cors({
         credentials: true
 }))
 app.use(session({
-        secret: "secret",
+        secret: config.get("sessionKey"),
         resave: true,
         saveUninitialized: true,
 }))
@@ -57,7 +62,7 @@ app.use('/api/v1/users', users)
 // app.use(handleErrors)
 
 //! Listening 
-const PORT = 5000
+const PORT = process.env.PORT === undefined ? 5000 : 5000
 app.listen(PORT, error => {
         if(error) console.error(error)       
         console.log(`Listening on PORT ${PORT}`)

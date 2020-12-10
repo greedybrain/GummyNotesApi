@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
         confirmPassword: {
                 type: String,
                 minlength: 8,
-                required: true
+                required: true,
         },
         notes: {
                 type: [NoteSchema]

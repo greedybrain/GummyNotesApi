@@ -18,7 +18,7 @@ userRouter.get('/me', ifAuthorized, async (req, res) => await getCurrentUser(req
 userRouter.post('/', async (req, res) => await signupUser(req, res))
 userRouter.get('/:id/notes', ifAuthorized, async (req, res) => await getCurrentUsersNotes(req, res))
 userRouter.post('/:id/notes', ifAuthorized, async (req, res) => await createNote(req, res))
-userRouter.put('/:user_id/notes/:note_id', ifAuthorized, async (req, res) => await updateNote(req, res))
+userRouter.patch('/:user_id/notes/:note_id', ifAuthorized, async (req, res) => await updateNote(req, res))
 userRouter.delete('/:user_id/notes/:note_id', ifAuthorized, async (req, res) => await deleteNote(req, res))
 
 //! Exporting 
