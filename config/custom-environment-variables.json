@@ -1,0 +1,4 @@
+{
+        "jwtPrivateKey": "gummy_notes_jwtPrivateKey",
+        "sessionKey": "gummy_notes_sessionKey"
+}
