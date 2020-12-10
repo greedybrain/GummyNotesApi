@@ -12,7 +12,7 @@ const app = express()
 
 //! Custom 
 // const { handleErrors } = require('./app/middleware/error')
-const { configuredLocalStrategy } = require('./config/passportConfig');
+const { configuredLocalStrategy } = require('./config/passportConfig.js');
 configuredLocalStrategy(passport)
 const auth = require('./app/routes/auths')
 const users = require('./app/routes/users');

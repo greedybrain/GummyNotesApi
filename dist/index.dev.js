@@ -23,7 +23,7 @@ var express = require('express');
 var app = express(); //! Custom 
 // const { handleErrors } = require('./app/middleware/error')
 
-var _require = require('./config/passportConfig'),
+var _require = require('./config/passportConfig.js'),
     configuredLocalStrategy = _require.configuredLocalStrategy;
 
 configuredLocalStrategy(passport);
