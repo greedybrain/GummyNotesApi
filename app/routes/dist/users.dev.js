@@ -14,9 +14,7 @@ var _require = require('../controllers/usersController'),
     deleteNote = _require.deleteNote;
 
 var _require2 = require('../middleware/auth'),
-    ifAuthorized = _require2.ifAuthorized;
-
-var user = require('../models/user'); //! Define routes
+    ifAuthorized = _require2.ifAuthorized; //! Define routes
 
 
 userRouter.get('/', function _callee(req, res) {

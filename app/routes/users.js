@@ -12,7 +12,6 @@ const {
         deleteNote,
 } = require('../controllers/usersController')
 const { ifAuthorized } = require('../middleware/auth')
-const user = require('../models/user')
 
 //! Define routes
 userRouter.get('/', async (req, res) => await getUsers(req, res))
