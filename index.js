@@ -11,17 +11,9 @@ const express = require('express')
 const app = express()
 
 //! Custom 
-// const { handleErrors } = require('./app/middleware/error')
-const { configuredLocalStrategy } = require('./config/passportConfig.js');
-configuredLocalStrategy(passport)
+require('./');
 const auth = require('./app/routes/auths')
 const users = require('./app/routes/users');
-
-
-// if (!config.get('jwtPrivateKey')) {
-//         console.log("FATAL ERROR: jwtPrivateKey is not defined.")
-//         process.exit(1)
-// }
 
 if (!config.get('sessionKey')) {
         console.log("FATAL ERROR: session key is not defined.")
