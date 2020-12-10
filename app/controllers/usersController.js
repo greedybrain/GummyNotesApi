@@ -18,6 +18,11 @@ const { validateNote } = require('../models/note')
 // } => then wrap each 'route/action' in this ^ method
 
 //! Helper functions
+const getUsers = async (req, res) => {
+        let users = await User.find()
+        res.send(users)
+}
+
 const getCurrentUser = async (req, res) => {
         let user = await User.findById(req.user._id) .select('-password -createdAt -updatedAt -__v')
         if (!user) return res.status(404).send("User does not exist")
@@ -95,6 +100,7 @@ const deleteNote = async (req, res) => {
 //! Exports
 module.exports = {
         getCurrentUser,
+        getUsers,
         signupUser,
         getCurrentUsersNotes,
         createNote,
