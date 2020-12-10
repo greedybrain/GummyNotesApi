@@ -29,7 +29,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "jest --watchAll",
-    "start": "node /app/index.js", 
+    "start": "node ./index.js", 
     "": ""
   },
   "engines": {
