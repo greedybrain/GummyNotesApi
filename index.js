@@ -10,9 +10,9 @@ const express = require('express')
 const app = express()
 
 //! Custom 
-require('./config/passport')(passport);
-const auth = require('./routes/auths')
-const users = require('./routes/users');
+require('./app/config/passport')(passport);
+const auth = require('./app/routes/auths')
+const users = require('./app/routes/users');
 
 if (!config.get('sessionKey')) {
         console.log("FATAL ERROR: session key is not defined.")
@@ -35,7 +35,7 @@ mongoose.connect(connectionString, {
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-require('../prod')(app)
+require('./prod')(app)
 
 app.use(cors({
         origin: 'http://localhost:3000', // react connection,
