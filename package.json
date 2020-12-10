@@ -6,6 +6,7 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "config": "^3.3.2",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -27,7 +28,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "14.9.0"
   },
   "repository": {
     "type": "git",

@@ -44,6 +44,8 @@ mongoose.connect(connectionString, {
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+require('./prod')(app)
+
 app.use(cors({
         origin: 'http://localhost:3000', // react connection,
         credentials: true
