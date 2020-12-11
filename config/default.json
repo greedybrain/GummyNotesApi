@@ -1,4 +1,6 @@
-{
+{       
+        "connection_string": "mongodb://localhost/gummy-notes-app",
         "jwtPrivateKey": "",
-        "sessionKey": ""
+        "sessionKey": "",
+        "db": ""
 }
