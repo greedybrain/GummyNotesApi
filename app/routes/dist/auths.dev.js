@@ -13,7 +13,7 @@ var _require = require('../controllers/authsController'),
     logoutUser = _require.logoutUser; //! Create login request
 
 
-authRouter.post('/', cors(), function _callee(req, res) {
+authRouter.post('/', function _callee(req, res) {
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {

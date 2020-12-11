@@ -39,7 +39,7 @@ userRouter.get('/', function _callee(req, res) {
     }
   });
 });
-userRouter.get('/me', cors(), ifAuthorized, function _callee2(req, res) {
+userRouter.get('/me', ifAuthorized, function _callee2(req, res) {
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {

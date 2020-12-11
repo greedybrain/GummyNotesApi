@@ -7,7 +7,7 @@ const cors = require('cors');
 const { loginUser, logoutUser } = require('../controllers/authsController')
 
 //! Create login request
-authRouter.post('/', cors(), async (req, res) => await loginUser(req, res))
+authRouter.post('/', async (req, res) => await loginUser(req, res))
 authRouter.delete('/logout', async (req, res) => await logoutUser(req, res))
 
 //! Export router to use in index.js file 
