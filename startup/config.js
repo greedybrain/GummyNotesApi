@@ -12,7 +12,7 @@ module.exports = function(app, express, config, passport) {
         app.use('/api/v1/users', users)
 
         app.use(cors({
-                origin: 'http://localhost:3000', // react connection,
+                origin: 'https://gifted-dubinsky-612231.netlify.app', // react connection,
                 credentials: true
         }))
         app.use(session({
