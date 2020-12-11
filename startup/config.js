@@ -2,6 +2,8 @@ const auth = require('../app/routes/auths')
 const users = require('../app/routes/users');
 const session = require('express-session');
 const cors = require('cors');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
 
 module.exports = function(app, express, config, passport) {
         app.use(express.json())
@@ -15,6 +17,7 @@ module.exports = function(app, express, config, passport) {
         }))
         app.use(session({
                 secret: config.get("sessionKey"),
+                store: new MongoStore({ mongooseConnection: mongoose.connection }),
                 resave: true,
                 saveUninitialized: true,
         }))
@@ -22,3 +25,5 @@ module.exports = function(app, express, config, passport) {
         app.use(passport.initialize());
         app.use(passport.session());
 }
+
+const session = require('express-session');
