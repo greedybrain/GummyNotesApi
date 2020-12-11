@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 module.exports = function(config) {
-        const connectionString = config.get('db')
+        const connectionString = config.get('connection_string')
         mongoose.connect(connectionString, {
                 useFindAndModify: true,
                 useUnifiedTopology: true,

@@ -21,3 +21,5 @@ require('./prod')(app); //! Listening
 
 
 require('./startup/listener')(app);
+
+console.log(process.env);
