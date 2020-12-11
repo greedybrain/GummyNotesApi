@@ -17,8 +17,6 @@ module.exports = function (app, express, config, passport) {
   app.use(express.urlencoded({
     extended: true
   }));
-  app.use('/api/v1/auth', auth);
-  app.use('/api/v1/users', users);
   app.use(cors({
     origin: 'https://gifted-dubinsky-612231.netlify.app',
     // react connection,
@@ -35,4 +33,6 @@ module.exports = function (app, express, config, passport) {
   }));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use('/api/v1/auth', auth);
+  app.use('/api/v1/users', users);
 };
