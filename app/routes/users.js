@@ -1,6 +1,7 @@
 //! Packages
 const express = require('express')
 const userRouter = express.Router()
+const cors = require('cors');
 
 //! Custom
 const { 
@@ -16,7 +17,7 @@ const { ifAuthorized } = require('../middleware/auth')
 
 //! Define routes
 userRouter.get('/', async (req, res) => await getUsers(req, res))
-userRouter.get('/me', ifAuthorized, async (req, res) => await getCurrentUser(req, res))
+userRouter.get('/me', cors(), ifAuthorized, async (req, res) => await getCurrentUser(req, res))
 userRouter.post('/', async (req, res) => await signupUser(req, res))
 userRouter.get('/:id/notes', ifAuthorized, async (req, res) => await getCurrentUsersNotes(req, res))
 userRouter.post('/:id/notes', ifAuthorized, async (req, res) => await createNote(req, res))
