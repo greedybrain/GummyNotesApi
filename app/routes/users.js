@@ -5,6 +5,7 @@ const userRouter = express.Router()
 //! Custom
 const { 
         signupUser, 
+        getUsers,
         getCurrentUser, 
         getCurrentUsersNotes, 
         createNote,

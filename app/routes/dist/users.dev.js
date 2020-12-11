@@ -7,6 +7,7 @@ var userRouter = express.Router(); //! Custom
 
 var _require = require('../controllers/usersController'),
     signupUser = _require.signupUser,
+    getUsers = _require.getUsers,
     getCurrentUser = _require.getCurrentUser,
     getCurrentUsersNotes = _require.getCurrentUsersNotes,
     createNote = _require.createNote,
