@@ -11,8 +11,9 @@ module.exports = function(app, express, config, passport) {
         app.use('/api/v1/auth', auth)
         app.use('/api/v1/users', users)
 
+        app.options('*', cors())
         app.use(cors({
-                origin: 'https://gifted-dubinsky-612231.netlify.app', // react connection,
+                // origin: 'https://gifted-dubinsky-612231.netlify.app', // react connection,
                 credentials: true
         }))
         app.use(session({
