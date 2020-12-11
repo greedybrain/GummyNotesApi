@@ -11,6 +11,7 @@ module.exports = function(app, express, config, passport) {
 
         app.use(cors({
                 origin: 'https://gifted-dubinsky-612231.netlify.app', // react connection,
+                methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
                 allowedHeaders: ['Access-Control-Allow-Origin', 'Access-Control-Allow-Headers'],
                 credentials: true
         }))
