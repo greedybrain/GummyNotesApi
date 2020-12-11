@@ -18,12 +18,13 @@ module.exports = function (app, express, config, passport) {
     extended: true
   }));
   app.use('/api/v1/auth', auth);
-  app.use('/api/v1/users', users); // app.use(cors({
-  //         origin: 'https://gifted-dubinsky-612231.netlify.app', // react connection,
-  //         credentials: true
-  // }))
-
-  app.use(cors());
+  app.use('/api/v1/users', users);
+  app.use(cors({
+    origin: 'https://gifted-dubinsky-612231.netlify.app',
+    // react connection,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  }));
   app.use(session({
     secret: config.get("sessionKey"),
     store: new MongoStore({
