@@ -8,6 +8,10 @@ var session = require('express-session');
 
 var cors = require('cors');
 
+var mongoose = require('mongoose');
+
+var MongoStore = require('connect-mongo')(session);
+
 module.exports = function (app, express, config, passport) {
   app.use(express.json());
   app.use(express.urlencoded({
@@ -22,6 +26,9 @@ module.exports = function (app, express, config, passport) {
   }));
   app.use(session({
     secret: config.get("sessionKey"),
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    }),
     resave: true,
     saveUninitialized: true
   }));

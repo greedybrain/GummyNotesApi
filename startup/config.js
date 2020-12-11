@@ -25,5 +25,3 @@ module.exports = function(app, express, config, passport) {
         app.use(passport.initialize());
         app.use(passport.session());
 }
-
-const session = require('express-session');
